@@ -1,0 +1,17 @@
+{
+    "description": "Countdown to USD CS Graduation",
+    "name": "Countdown to USD CS Graduation",
+    "short_name": "Countdown",
+    "start_url": "index.html",
+    "scope": "./",
+    "icons": [
+      {
+        "src": "assets/icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#003b70",
+    "background_color": "#003b70",
+    "display": "standalone"
+  }
