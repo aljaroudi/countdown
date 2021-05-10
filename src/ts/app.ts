@@ -26,7 +26,7 @@ function setVals(values: number[]) {
     container.innerHTML = ''
 
     // define titles for the values
-    const titles = ['seconds', 'minutes', 'hours', 'days', 'weeks'].reverse()
+    const titles = ['seconds', 'minutes', 'hours', 'days'].reverse()
     // reverse the values to display weeks before seconds
     values.reverse();
 
@@ -47,9 +47,11 @@ const getVals = (target: Date, since: Date = new Date()): number[] => {
     // the absolute value of the difference in seconds
     const delta: number = Math.abs(target.getTime() - since.getTime()) / 1000
 
-    const weeks = Math.floor(delta / (60 * 60 * 24 * 7))
+    // const weeks = Math.floor(delta / (60 * 60 * 24 * 7))
 
-    const days = Math.floor((delta % (60 * 60 * 24 * 7)) / (60 * 60 * 24))
+    // const days = Math.floor((delta % (60 * 60 * 24 * 7)) / (60 * 60 * 24))
+
+    const days = Math.floor(delta / (60 * 60 * 24))
 
     const hours = Math.floor((delta % (60 * 60 * 24)) / (60 * 60))
 
@@ -57,7 +59,7 @@ const getVals = (target: Date, since: Date = new Date()): number[] => {
 
     const seconds = Math.floor((delta % 60))
 
-    return [seconds, minutes, hours, days, weeks]
+    return [seconds, minutes, hours, days]
 }
 
 // create a target Date, Pacific Time
