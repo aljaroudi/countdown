@@ -27,20 +27,24 @@ $color-text: #003b70;
     flex-direction: column;
     justify-content: center;
 
-    &>h2 {
-        font-size: 5rem;
-        padding: 3rem;
-
-        overflow-wrap: break-word;
+    h1 {
+        font-size: 10vw;
     }
-
-
 }
 
 #countdown {
     display: flex;
     justify-content: space-around;
-    text-align: center;
+
+    // center Y
+    align-items: center;
+
+    // center X
+    // flex-direction: column;
+    justify-content: center;
+
+    margin: 0 auto;
+    width: 100vw;
 
 
     &>div {
