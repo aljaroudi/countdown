@@ -1,6 +1,13 @@
 const container = document.getElementById('countdown')
 
-const makeCard = (title: string, value: number) => {
+/**
+ *
+ *
+ * @param {string} title unit of the value
+ * @param {number} value value
+ * @return {string} HTML Element: div
+ */
+const makeCard = (title: string, value: number): string => {
     return `
     <div>
         <h3 class="value">${value.toFixed(0)}</h3>
@@ -29,19 +36,17 @@ function setVals(values: number[]) {
     }
 }
 
-
-const getVals = (target: Date, since: Date = new Date()) => {
+/**
+ *
+ *
+ * @param {Date} target the date to count down to
+ * @param {Date} [since=new Date()] date to compare with, now by default
+ * @return {number[]}  the values in order: weeks, days, hr, min, sec
+ */
+const getVals = (target: Date, since: Date = new Date()): number[] => {
     // the absolute value of the difference in seconds
     const delta: number = Math.abs(target.getTime() - since.getTime()) / 1000
 
-    const date = (new Date(delta * 1000) + '').slice(16, 24);
-
-    // console.log(date)
-
-    // const day = Math.floor(delta / (60 * 60 * 24))
-    // console.log(day + ' days')
-
-    // seconds to weeks
     const weeks = Math.floor(delta / (60 * 60 * 24 * 7))
 
     const days = Math.floor((delta % (60 * 60 * 24 * 7)) / (60 * 60 * 24))
@@ -52,8 +57,14 @@ const getVals = (target: Date, since: Date = new Date()) => {
 
     const seconds = Math.floor((delta % 60))
 
-
-    setVals([seconds, minutes, hours, days, weeks])
+    return [seconds, minutes, hours, days, weeks]
 }
 
-setInterval(() => getVals(new Date('May 23, 2021 14:30:00')), 1000)
+// create a target Date
+const target = new Date('May 23, 2021 14:30:00')
+
+// Set it for the first time
+setVals(getVals(target))
+
+// Set it again every 1000ms (1s)
+setInterval(() => setVals(getVals(target)), 1000)
