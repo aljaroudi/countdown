@@ -1,5 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@1,700;1,800&display=swap');
+
+$color-text: #003b70;
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    color: white;
+    background-color: $color-text;
+
+    font-family: Spectral;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+
+    // center Y
+    align-items: center;
+
+    // center X
+    flex-direction: column;
+    justify-content: center;
+
+    &>h2 {
+        font-size: 5rem;
+        padding: 3rem;
+
+        overflow-wrap: break-word;
+    }
+
+    #countdown {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+
+
+        &>div {
+            padding: 1rem;
+
+            * {
+                font-weight: 700;
+            }
+
+            .value {
+                font-size: 3rem;
+            }
+
+            .title {
+                text-transform: lowercase;
+            }
+        }
+    }
 }
