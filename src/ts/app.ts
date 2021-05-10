@@ -68,3 +68,9 @@ setVals(getVals(target))
 
 // Set it again every 1000ms (1s)
 setInterval(() => setVals(getVals(target)), 1000)
+
+
+if ("serviceWorker" in navigator) {
+    // register service worker
+    navigator.serviceWorker.register("service-worker.js");
+}
