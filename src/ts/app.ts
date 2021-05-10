@@ -1,5 +1,5 @@
-const container = document.getElementById('countdown')
 
+const container = document.getElementById('countdown')
 /**
  *
  *
@@ -32,7 +32,7 @@ function setVals(values: number[]) {
 
     for (let i = 0; i < values.length; i++) {
         // Only add values greater than 0
-        if (values[i]) container.insertAdjacentHTML("beforeend", makeCard(titles[i], values[i]))
+        container.insertAdjacentHTML("beforeend", makeCard(titles[i], values[i]))
     }
 }
 
@@ -51,7 +51,7 @@ const getVals = (target: Date, since: Date = new Date()): number[] => {
 
     const days = Math.floor((delta % (60 * 60 * 24 * 7)) / (60 * 60 * 24))
 
-    const hours = Math.floor((delta % (60 * 60 * 24)) / (60 * 60 * 24))
+    const hours = Math.floor((delta % (60 * 60 * 24)) / (60 * 60))
 
     const minutes = Math.floor((delta % (60 * 60)) / 60)
 
@@ -60,8 +60,8 @@ const getVals = (target: Date, since: Date = new Date()): number[] => {
     return [seconds, minutes, hours, days, weeks]
 }
 
-// create a target Date
-const target = new Date('May 23, 2021 14:30:00')
+// create a target Date, Pacific Time
+const target = new Date('May 23, 2021 14:30:00 GMT-0700')
 
 // Set it for the first time
 setVals(getVals(target))
